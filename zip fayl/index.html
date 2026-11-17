@@ -1,0 +1,440 @@
+
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apple — Innovation & Lifestyle</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+<style>
+:root {
+  --bg:#08090b;
+  --surface:#141519;
+  --white:#f5f5f7;
+  --muted:#96969f;
+  --blue:#2997ff;
+}
+* {margin:0;padding:0;box-sizing:border-box}
+html {scroll-behavior:smooth}
+body {
+  background:var(--bg);
+  color:var(--white);
+  font-family:Inter,sans-serif;
+  overflow-x:hidden;
+}
+a {color:inherit;text-decoration:none}
+button {font:inherit}
+nav {
+  height:65px;
+  position:fixed;
+  inset:0 0 auto;
+  z-index:100;
+  background:rgba(8,9,11,.82);
+  backdrop-filter:blur(22px);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-bottom:1px solid #ffffff12;
+}
+.nav-inner {
+  width:min(1100px,92%);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.logo {font-size:25px;font-weight:700}
+.nav-links {display:flex;gap:32px;font-size:12px;color:#d0d0d5}
+.nav-links a:hover {color:var(--blue)}
+.menu-btn {display:none;background:none;border:0;color:white;font-size:24px}
+
+.hero {
+  min-height:850px;
+  padding:145px 20px 70px;
+  text-align:center;
+  background:radial-gradient(ellipse at 50% 65%,#172332 0%,#08090b 62%);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+}
+.eyebrow {color:var(--blue);font-size:14px;margin-bottom:18px}
+.hero h1 {font-size:clamp(45px,8vw,90px);letter-spacing:-5px;font-weight:700}
+.hero h2 {font-size:clamp(21px,3vw,32px);font-weight:500;margin:14px 0;color:#c6c6ce}
+.hero p {color:var(--muted);margin:8px 0 25px}
+.actions {display:flex;gap:25px;justify-content:center}
+.btn {
+  background:var(--blue);
+  color:white;
+  border:0;
+  border-radius:30px;
+  padding:13px 25px;
+  display:inline-block;
+  transition:.3s;
+}
+.btn:hover {background:#0876df;transform:translateY(-3px)}
+.link {color:var(--blue)}
+.hero img {
+  width:min(850px,95%);
+  margin-top:55px;
+  object-fit:contain;
+  filter:drop-shadow(0 25px 50px #000);
+  animation:float 5s ease-in-out infinite;
+}
+@keyframes float {
+  0%,100% {transform:translateY(0)}
+  50% {transform:translateY(-12px)}
+}
+section {padding:110px 7%}
+.section-title {text-align:center;margin-bottom:55px}
+.section-title h2 {font-size:clamp(34px,5vw,55px);letter-spacing:-2px}
+.section-title p {color:var(--muted);margin-top:14px}
+
+.about {
+  background:#101115;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:65px;
+}
+.about img {width:100%;border-radius:25px}
+.about h2 {font-size:clamp(35px,5vw,55px);margin-bottom:25px}
+.about p {color:#a4a4ad;line-height:1.9}
+.about .btn {margin-top:25px}
+
+.products {background:#08090b}
+.product-card {
+  background:linear-gradient(145deg,#1b1c21,#111216);
+  border:1px solid #ffffff12;
+  border-radius:25px;
+  padding:25px;
+  min-height:440px;
+  text-align:center;
+  margin:10px;
+  transition:.35s;
+}
+.product-card:hover {
+  transform:translateY(-10px);
+  border-color:#2997ff80;
+  box-shadow:0 20px 50px #0008;
+}
+.product-card img {
+  width:100%;
+  height:230px;
+  object-fit:contain;
+  margin-bottom:20px;
+}
+.product-card h3 {font-size:22px;margin-bottom:12px}
+.product-card p {font-size:13px;color:var(--muted);line-height:1.7}
+.price {display:block;margin:20px 0;font-weight:600}
+.owl-nav button {
+  color:white!important;
+  font-size:35px!important;
+  margin:0 15px;
+}
+.owl-dots {text-align:center;margin-top:25px}
+.owl-dot span {
+  background:#555!important;
+}
+.owl-dot.active span {background:var(--blue)!important}
+
+.duo {
+  background:radial-gradient(ellipse at center,#202b3b,#08090b 70%);
+  text-align:center;
+}
+.duo h2 {font-size:clamp(42px,7vw,76px);letter-spacing:-4px}
+.duo p {color:#b4b4bd;max-width:650px;margin:20px auto;line-height:1.8}
+.duo img {
+  width:min(900px,100%);
+  margin:45px auto;
+  display:block;
+  border-radius:20px;
+}
+.features {
+  display:flex;
+  justify-content:center;
+  gap:45px;
+  flex-wrap:wrap;
+  color:#d3d3da;
+  margin:30px 0;
+}
+.features strong {display:block;font-size:25px;color:white;margin-bottom:7px}
+
+.contact {background:#101115}
+.contact-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+}
+.contact-info,.map {
+  background:#1a1b20;
+  border-radius:25px;
+  padding:35px;
+}
+.contact-info h3 {font-size:26px;margin-bottom:25px}
+.contact-info p {color:#aaaab3;margin:20px 0;line-height:1.7}
+.contact-info a {color:var(--blue)}
+.map iframe {
+  width:100%;
+  height:300px;
+  border:0;
+  border-radius:15px;
+  margin-top:15px;
+}
+form {display:grid;gap:15px;margin-top:25px}
+input,textarea {
+  background:#292a30;
+  border:1px solid #ffffff18;
+  border-radius:12px;
+  padding:15px;
+  color:white;
+  font:inherit;
+  width:100%;
+}
+textarea {min-height:110px;resize:vertical}
+footer {
+  text-align:center;
+  padding:35px 15px;
+  color:#777;
+  border-top:1px solid #ffffff12;
+  font-size:12px;
+}
+.reveal {
+  opacity:0;
+  transform:translateY(35px);
+  transition:opacity .8s ease,transform .8s ease;
+}
+.reveal.visible {opacity:1;transform:translateY(0)}
+
+@media(max-width:750px) {
+  .nav-links {
+    display:none;
+    position:absolute;
+    top:65px;
+    left:0;
+    right:0;
+    background:#101115;
+    padding:25px;
+    flex-direction:column;
+    text-align:center;
+  }
+  .nav-links.open {display:flex}
+  .menu-btn {display:block}
+  .hero {min-height:720px}
+  .hero h1 {letter-spacing:-2px}
+  section {padding:75px 6%}
+  .about,.contact-grid {grid-template-columns:1fr}
+  .about {gap:35px}
+  .features {gap:25px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+ <div class="nav-inner">
+  <a href="#" class="logo">●</a>
+  <div class="nav-links" id="navLinks">
+   <a href="#home">Bosh sahifa</a>
+   <a href="#about">Kompaniya</a>
+   <a href="#products">Mahsulotlar</a>
+   <a href="#duo">iPhone Duo</a>
+   <a href="#contact">Aloqa</a>
+  </div>
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+ </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="home">
+ <span class="eyebrow">YANGI AVLOD. YANGI IMKONIYATLAR.</span>
+ <h1>MacBook Pro.</h1>
+ <h2>Chegaralarni unuting.</h2>
+ <p>Yangi M6 chip. Cheksiz imkoniyatlar.</p>
+ <div class="actions">
+  <a href="#products" class="btn">Xarid qilish</a>
+  <a href="#about" class="link">Batafsil →</a>
+ </div>
+ <img src="https://www.apple.com/newsroom/images/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/article/Apple-MacBook-Pro-14-in-with-M6-hero-261027_big.jpg.large.jpg" alt="Apple MacBook Pro M6">
+</header>
+
+<!-- ABOUT -->
+<section class="about reveal" id="about">
+ <div>
+  <h2>Apple — bu shunchaki texnologiya emas.</h2>
+  <p>
+   Apple dunyodagi eng mashhur texnologiya kompaniyalaridan biri.
+   Kompaniya innovatsion qurilmalar, mukammal dizayn va
+   qulay dasturiy tajribani birlashtiradi.
+   iPhone, Mac, iPad, Apple Watch va AirPods —
+   barchasi yagona ekotizimning bir qismi.
+  </p>
+  <a href="https://www.apple.com" class="btn">Apple haqida</a>
+ </div>
+ <img src="https://www.apple.com/newsroom/images/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/article/Apple-MacBook-Pro-14-in-with-M6-hero-261027_big.jpg.large.jpg" alt="Apple texnologiyasi">
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+ <div class="section-title reveal">
+  <h2>Mahsulotlarimiz.</h2>
+  <p>Har bir detalda mukammallik.</p>
+ </div>
+
+ <div class="owl-carousel owl-theme">
+
+  <article class="product-card">
+   <img src="https://www.apple.com/newsroom/images/2026/10/apple-introduces-the-new-14-inch-macbook-pro-with-m6/article/Apple-MacBook-Pro-14-in-with-M6-hero-261027_big.jpg.large.jpg" alt="MacBook Pro">
+   <h3>MacBook Pro M6</h3>
+   <p>Professional ishlar uchun yuqori unumdorlik va kuchli Apple chip.</p>
+   <span class="price">Narx: so‘rov bo‘yicha</span>
+   <a href="tel:+998696996969" class="link">Buyurtma berish →</a>
+  </article>
+
+  <article class="product-card">
+   <img src="https://www.apple.com/newsroom/images/2026/10/open-up-to-new-possibilities-with-iphone-duo/article/Apple-iPhone-Duo-hero_big.jpg.large.jpg" alt="iPhone Duo">
+   <h3>iPhone Duo</h3>
+   <p>Yangi bukiluvchi dizayn va katta immersiv displey.</p>
+   <span class="price">Narx: so‘rov bo‘yicha</span>
+   <a href="tel:+998696996969" class="link">Buyurtma berish →</a>
+  </article>
+
+  <article class="product-card">
+   <img src="https://www.apple.com/newsroom/images/2026/03/apple-introduces-the-new-ipad-air-powered-by-m4/article/Apple-iPad-Air-M4-multitasking-260302_big.jpg.large.jpg" alt="iPad Air">
+   <h3>iPad Air M4</h3>
+   <p>Ijodkorlik va kundalik ishlar uchun qudratli planshet.</p>
+   <span class="price">Narx:15199000 </span>
+   <a href="tel:+998696996969" class="link">Buyurtma berish →</a>
+  </article>
+
+  <article class="product-card">
+   <img src="https://www.apple.com/newsroom/images/2026/09/apple-introduces-airpods-5-with-best-in-class-open-ear-active-noise-cancellation/article/Apple-AirPods-5-hero-260909_big.jpg.large.jpg" alt="AirPods 5">
+   <h3>AirPods 5</h3>
+   <p>Yuqori sifatli ovoz va faol shovqinni kamaytirish.</p>
+   <span class="price">Narx: 198000</span>
+   <a href="tel:+998696996969" class="link">Buyurtma berish →</a>
+  </article>
+
+  <article class="product-card">
+   <img src="https://www.apple.com/newsroom/images/2026/10/open-up-to-new-possibilities-with-iphone-duo/article/Apple-iPhone-Duo-hero_big.jpg.large.jpg" alt="Apple Watch">
+   <h3>Apple Watch Series 12</h3>
+   <p>Salomatlik, sport va kundalik hayot uchun aqlli yordamchi.</p>
+   <span class="price">Narx: 500000</span>
+   <a href="tel:+998696996969" class="link">Buyurtma berish →</a>
+  </article>
+
+ </div>
+</section>
+
+<!-- IPHONE DUO -->
+<section class="duo reveal" id="duo">
+ <span class="eyebrow">YANGI. O‘ZGACHA. INNOVATSION.</span>
+ <h2>iPhone Duo.</h2>
+ <p>
+  Apple'ning yangi bukiluvchi smartfoni.
+  Ochilganda katta 7.6 dyuymli displey,
+  A20 Pro chip va yangi avlod iOS tajribasi.
+ </p>
+
+ <img src="https://www.apple.com/newsroom/images/2026/10/open-up-to-new-possibilities-with-iphone-duo/article/Apple-iPhone-Duo-hero_big.jpg.large.jpg" alt="Apple iPhone Duo">
+
+ <div class="features">
+  <div><strong>7.6″</strong>Ichki displey</div>
+  <div><strong>A20 Pro</strong>Yangi chip</div>
+  <div><strong>48 MP</strong>Asosiy kamera</div>
+ </div>
+ <a href="tel:+998696996969" class="btn">Buyurtma berish</a>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+ <div class="section-title reveal">
+  <h2>Biz bilan bog‘laning.</h2>
+  <p>Sizga yordam berishdan mamnunmiz.</p>
+ </div>
+
+ <div class="contact-grid">
+  <div class="contact-info reveal">
+   <h3>Aloqa ma'lumotlari</h3>
+   <p>Telefon: <a href="tel:+998696996969">+998 69 699 6969</a></p>
+   <p>Biz bilan bog‘laning va mahsulotlar haqida batafsil ma'lumot oling.</p>
+   <form id="contactForm">
+    <input type="text" id="name" placeholder="Ismingiz" required>
+    <input type="tel" id="phone" placeholder="Telefon raqamingiz" required>
+    <textarea id="message" placeholder="Xabaringiz"></textarea>
+    <button class="btn" type="submit">Telegram orqali yuborish</button>
+   </form>
+  </div>
+
+  <div class="map reveal">
+   <h3>Bizning lokatsiyamiz</h3>
+   <p style="color:#999;margin-top:10px">
+    Aniq manzil kiritilgach, xaritada ko‘rsatiladi.
+   </p>
+   <iframe
+    src="https://maps.google.com/maps?q=Tashkent%2C%20Uzbekistan&t=&z=12&ie=UTF8&iwloc=&output=embed"
+    loading="lazy"
+    allowfullscreen>
+   </iframe>
+  </div>
+ </div>
+</section>
+
+<footer>
+ <p>© 2026 Apple Design Concept. Barcha huquqlar himoyalangan.</p>
+ <p style="margin-top:10px">Mustaqil namoyish loyihasi. Apple Inc. bilan rasmiy aloqasi yo‘q.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+<script>
+function toggleMenu() {
+ document.getElementById('navLinks').classList.toggle('open');
+}
+
+$('.owl-carousel').owlCarousel({
+ loop:true,
+ margin:15,
+ nav:true,
+ dots:true,
+ autoplay:true,
+ autoplayTimeout:3500,
+ autoplayHoverPause:true,
+ responsive:{
+  0:{items:1},
+  600:{items:2},
+  1000:{items:3}
+ }
+});
+
+const observer = new IntersectionObserver(entries => {
+ entries.forEach(entry => {
+  if(entry.isIntersecting) {
+   entry.target.classList.add('visible');
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:0.12});
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+ e.preventDefault();
+
+ const name = document.getElementById('name').value;
+ const phone = document.getElementById('phone').value;
+ const message = document.getElementById('message').value;
+
+ const text = `Salom!%0AIsm: ${encodeURIComponent(name)}%0ATelefon: ${encodeURIComponent(phone)}%0AXabar: ${encodeURIComponent(message)}`;
+
+ window.open(`https://wa.me/998696996969?text=${text}`, '_blank');
+});
+</script>
+
+</body>
+</html>
